@@ -1,5 +1,5 @@
 import { Component } from "react";
-// import CardList from './components/card-list/card-list.component'
+import CardList from './components/card-list/card-list.component'
 import "./App.css";
 
 class App extends Component {
@@ -51,15 +51,7 @@ class App extends Component {
 
         />
 
-        {filteredMonsters.map((monster) => {
-          return (
-            <div key={monster.id}>
-              <p>{monster.name}</p>
-            </div>
-          );
-        })}
-
-        {/* <CardList /> */}
+        <CardList monsters={filteredMonsters}/>
       </div>
     );
   }
