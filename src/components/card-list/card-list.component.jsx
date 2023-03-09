@@ -1,12 +1,16 @@
 import Card from "../card/card.component";
-import CardModal from "../card-modal/card-modal.component";
 import "./card-list.styles.css";
 
 const CardList = ({ vehicles }) => {
   const clickHandler = (e) => {
     e.preventDefault();
-    const cardId = e.target.id;
-    console.log(cardId);
+    const activeCard = vehicles.filter((i) => i.id == e.target.id);
+
+    activeCard.map((i) => {
+      i.isActive = false;
+    });
+    activeCard[0].isActive = true;
+    console.log(activeCard);
   };
 
   return (

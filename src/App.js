@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import CardList from "./components/card-list/card-list.component";
-import CardModal from "./components/card-modal/card-modal.component";
-import SearchBox from "./components/search-box/search-box.component";
 import "./App.css";
-import { stripHtml } from "string-strip-html";
 
 const App = () => {
   // const [vehicles, setVehicles] = useState({
@@ -26,6 +23,7 @@ const App = () => {
         setVehicles(vehicle);
         vehicle.map((i) => {
           i.isActive = false;
+          console.log(i);
         });
       });
   }, []);
