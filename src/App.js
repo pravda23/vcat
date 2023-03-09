@@ -24,6 +24,9 @@ const App = () => {
       })
       .then((vehicle) => {
         setVehicles(vehicle);
+        vehicle.map((i) => {
+          i.isActive = false;
+        });
       });
   }, []);
 
@@ -33,7 +36,7 @@ const App = () => {
         <h1 className="app-title">Vehicle catalogue</h1>
       </div>
 
-      <CardList vehicles={vehicles} isActive={isActive} />
+      <CardList vehicles={vehicles} />
     </div>
   );
 };
