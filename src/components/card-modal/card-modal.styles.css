@@ -1,0 +1,18 @@
+.card-modal-container {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #272727;
+  border: 1px solid rgb(59, 59, 59);
+  border-radius: 5px;
+  padding: 25px;
+  cursor: pointer;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  opacity: 0.1;
+  color: #f1f1f1;
+  /* visibility: hidden; */
+}

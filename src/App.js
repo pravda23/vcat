@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import CardList from "./components/card-list/card-list.component";
+import CardModal from "./components/card-modal/card-modal.component";
 import SearchBox from "./components/search-box/search-box.component";
 import "./App.css";
+import { stripHtml } from "string-strip-html";
 
 const App = () => {
   // const [vehicles, setVehicles] = useState({
@@ -11,6 +13,7 @@ const App = () => {
   // });
 
   const [vehicles, setVehicles] = useState([]);
+  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
     fetch(
@@ -30,7 +33,7 @@ const App = () => {
         <h1 className="app-title">Vehicle catalogue</h1>
       </div>
 
-      <CardList vehicles={vehicles} />
+      <CardList vehicles={vehicles} isActive={isActive} />
     </div>
   );
 };
