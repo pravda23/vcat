@@ -1,15 +1,15 @@
-import React from "react"
-import './card.styles.css'
+import React from "react";
+import "./card.styles.css";
 
 const Card = (props) => {
-    const {id, name, email} = props.monster
-    return (
-        <div className='card-container'>
-         <img alt={`monster ${name}`} src={`https://robohash.org/${id}?set=set2&size=180x180`} />
-         <h2>{name}</h2>
-         <p>{email}</p>
-         </div>
-          )
-}
+  const { id, title, excerpt, jetpack_featured_media_url } = props.vehicle;
+  return (
+    <div className="card-container">
+      <img alt={`vehicle ${title.rendered}`} src={jetpack_featured_media_url} />
+      <h2>{title.rendered}</h2>
+      <p>{excerpt.rendered}</p>
+    </div>
+  );
+};
 
-export default Card 
+export default Card;

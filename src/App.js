@@ -4,56 +4,33 @@ import SearchBox from "./components/search-box/search-box.component";
 import "./App.css";
 
 const App = () => {
-  const [searchField, setSearchField] = useState("");
-  const [monsters, setMonsters] = useState([]);
-  const [filteredMonsters, setFilteredMonsters] = useState(monsters);
-  const [title, setTitle] = useState("Vehicle catalogue");
+  // const [vehicles, setVehicles] = useState({
+  //   title: "",
+  //   imgUrl: "",
+  //   isActive: false,
+  // });
 
-  // const onSearchChange = (event) => {
-  //   const searchFieldString = event.target.value.toLocaleLowerCase();
-  //   setSearchField(searchFieldString);
-  // };
-  // const onTitleChange = (event) => {
-  //   const titleString = event.target.value.toLocaleLowerCase();
-  //   setTitle(titleString);
-  // };
-
-  // test
+  const [vehicles, setVehicles] = useState([]);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch(
+      "https://johnbartmann.com/vcat/wp-json/wp/v2/posts?_fields=id,title,excerpt,jetpack_featured_media_url"
+    )
       .then((res) => {
         return res.json();
       })
-      .then((user) => {
-        setMonsters(user);
+      .then((vehicle) => {
+        setVehicles(vehicle);
       });
   }, []);
 
-  useEffect(() => {
-    const newFilteredMonsters = monsters.filter((monster) => {
-      return monster.name.toLocaleLowerCase().includes(searchField);
-    });
-
-    setFilteredMonsters(newFilteredMonsters);
-  }, [monsters, searchField]);
-
   return (
     <div className="App">
-      <h1 className="app-title">{title}</h1>
-      {/* <SearchBox
-        onChangeHandler={onSearchChange}
-        placeholder={"search monsters"}
-        className={"monsters-search-box"}
-      /> */}
+      <div className="header">
+        <h1 className="app-title">Vehicle catalogue</h1>
+      </div>
 
-      {/* <SearchBox
-        onChangeHandler={onTitleChange}
-        placeholder={"set title"}
-        className={"monsters-search-box"}
-      /> */}
-
-      <CardList monsters={filteredMonsters} />
+      <CardList vehicles={vehicles} />
     </div>
   );
 };
