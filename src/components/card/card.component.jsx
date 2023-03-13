@@ -5,6 +5,11 @@ import "./card.styles.css";
 const Card = (props) => {
   const stripHTML = (str) => str.replace(/<\/?[^>]+(>|$)/g, "");
   const { id, title, excerpt, jetpack_featured_media_url } = props.vehicle;
+
+  if (props.vehicle.id.isActive === true) {
+    console.log(id);
+  }
+
   return (
     <>
       <div className="card-container" id={props.vehicle.id}>

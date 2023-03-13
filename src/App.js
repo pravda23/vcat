@@ -3,14 +3,9 @@ import CardList from "./components/card-list/card-list.component";
 import "./App.css";
 
 const App = () => {
-  // const [vehicles, setVehicles] = useState({
-  //   title: "",
-  //   imgUrl: "",
-  //   isActive: false,
-  // });
-
   const [vehicles, setVehicles] = useState([]);
-  const [isActive, setIsActive] = useState(false);
+
+  // console.log(vehicles);
 
   useEffect(() => {
     fetch(
@@ -21,10 +16,6 @@ const App = () => {
       })
       .then((vehicle) => {
         setVehicles(vehicle);
-        vehicle.map((i) => {
-          i.isActive = false;
-          console.log(i);
-        });
       });
   }, []);
 
