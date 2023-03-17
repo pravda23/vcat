@@ -1,14 +1,11 @@
-import React from "react";
+import { React, useState } from "react";
 import CardModal from "../card-modal/card-modal.component";
 import "./card.styles.css";
 
 const Card = (props) => {
-  const stripHTML = (str) => str.replace(/<\/?[^>]+(>|$)/g, "");
   const { id, title, excerpt, jetpack_featured_media_url } = props.vehicle;
 
-  if (props.vehicle.id.isActive === true) {
-    console.log(id);
-  }
+  const stripHTML = (str) => str.replace(/<\/?[^>]+(>|$)/g, "");
 
   return (
     <>
@@ -20,7 +17,7 @@ const Card = (props) => {
         <h2>{title.rendered}</h2>
         <p>{stripHTML(excerpt.rendered)}</p>
       </div>
-      <CardModal title={title.rendered} />
+      <CardModal vehicle={props.vehicle} />
     </>
   );
 };

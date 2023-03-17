@@ -5,7 +5,19 @@ import "./App.css";
 const App = () => {
   const [vehicles, setVehicles] = useState([]);
 
-  // console.log(vehicles);
+  const changeActiveCardArray = (activeCard) => {
+    // console.log(vehicles);
+    console.log(activeCard);
+
+    // resets all isActive values to false
+    // const trueVehicle = vehicles.map((v) => {
+    //   return v.isActive;
+    // });
+    // console.log(trueVehicle);
+    // console.log("setVehicles to array with only 1 card isActive == true");
+    // console.log(activeCard);
+    // console.log(vehicles);
+  };
 
   useEffect(() => {
     fetch(
@@ -25,7 +37,10 @@ const App = () => {
         <h1 className="app-title">Vehicle catalogue</h1>
       </div>
 
-      <CardList vehicles={vehicles} />
+      <CardList
+        vehicles={vehicles}
+        changeActiveCardArray={changeActiveCardArray}
+      />
     </div>
   );
 };
